@@ -14,29 +14,27 @@
             margin-top: 20px;
         }
 
-        .schedule-table {
+        .dynamic-div {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .schedule-table th,
-        .schedule-table td {
-            border: 1px solid #000;
+        .dynamic-div th,
+        .dynamic-div td {
             padding: 10px;
             text-align: center;
+            font-size: 20px;
         }
 
-        .schedule-table th {
-            background-color: #f2f2f2;
+        .dynamic-div th {
+            background-color: rgb(53, 157, 198);
+            border-radius: 20px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
 
-        .dynamic-div {
-            font-size: 25px;
-        }
-
-        :disabled {
-            background-color: gray;
-            color: black;
+        #schedule {
+            border: solid rgb(53, 157, 198);
         }
 
         select {
@@ -49,148 +47,80 @@
 
 <body>
     <main>
-        <div style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142);">
-            <select name="class" id="class" style="margin: 10px 10px;">
-                <option value="null class" disabled selected>Класси</option>
-                <option value="class1">1 Класс</option>
-                <option value="class2">2 Класс</option>
-                <option value="class3">3 Класс</option>
-                <option value="class4">4 Класс</option>
-                <option value="class5">5 Класс</option>
-                <option value="class6">6 Класс</option>
-                <option value="class7">7 Класс</option>
-                <option value="class8">8 Класс</option>
-                <option value="class9">9 Класс</option>
-                <option value="class10">10 Класс</option>
-                <option value="class11">11 Класс</option>
-                <option value="class12">12 Класс</option>
-            </select>
-
+        <div style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center;">
             <select name="date" id="date" style="margin: 10px 10px;">
                 <option value="all-days" selected>Всі дні</option>
-                <option value="Monday" disabled>Понеділок </option>
-                <option value="Tuesday" disabled>Вівторок </option>
-                <option value="Wednesday" disabled>Середа </option>
-                <option value="Thursday" disabled>Четвер</option>
-                <option value="Friday" disabled>П'ятниця</option>
-
+                <option value="Monday">Понеділок</option>
+                <option value="Tuesday">Вівторок</option>
+                <option value="Wednesday">Середа</option>
+                <option value="Thursday">Четвер</option>
+                <option value="Friday">П'ятниця</option>
             </select>
         </div>
     </main>
-    <footer>
-        <div class="container" id="dynamic-container"
+    <aside>
+        <div class="container" id="schedule"
             style="background-color: rgb(15, 106, 142); border-radius: 25px; text-align: center;"></div>
-    </footer>
+        </aside>
+        <footer>
+            <div style="position: fixed; bottom: 20px; left: 50%; margin: 0px -205px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
+                Це не фінальний результат, і розклад може бути змінений.
+            </div>
+        </footer>
 
     <script>
-
-
-
-
-        document.getElementById('class').addEventListener('change', updateContent);
         document.getElementById('date').addEventListener('change', updateContent);
 
+        const lists = [
+            {
+                "class7": {
+                    "Monday": [{ "time": "16:00", "text": "Перший дзвоник" }],
+                    "Tuesday": [{ "time": "17:00", "text": "Математика" }, { "time": "17:30", "text": "Англ. М" }],
+                    "Wednesday": [{ "time": "17:00", "text": "ЯДС" }, { "time": "17:30", "text": "Укр. М" }, { "time": "18:00", "text": "Фіз-ра" }],
+                    "Thursday": [{ "time": "17:00", "text": "ЯДС" }, { "time": "17:30", "text": "Образ. Мист." }],
+                    "Friday": [{ "time": "17:00", "text": "Укр. М" }, { "time": "17:30", "text": "Англ. М" }, { "time": "18:00", "text": "Муз. М" }]
+                }
+            }
+        ];
+
         function updateContent() {
-            const classValue = document.getElementById('class').value;
             const dayValue = document.getElementById('date').value;
-            createDiv(classValue, dayValue);
+            createScheduleTable(dayValue);
         }
 
-        function createDiv(className, dayName) {
-            const container = document.getElementById('dynamic-container');
-            while (container.firstChild) {
-                container.removeChild(container.firstChild);
-            }
+        function createScheduleTable(dayName) {
+            const schedule = lists[0].class7;
+            let result = "<table class='dynamic-div'><tr><th>День тижня</th><th>Час</th><th>Урок</th></tr>";
 
-            const newDiv = document.createElement('tabel');
-            newDiv.className = 'dynamic-div';
-            const date = new Date();
-
-
-            const lists = [
-                {
-                    "class1": {
-                        "Monday": [
-                            { "time": "13:00", "text": "урок1" }
-                        ],
-                        "Tuesday": [
-                            { "time": "14:00", "text": "урок2" }
-                        ],
-                        "Wednesday": [
-                            { "time": "15:00", "text": "урок3" }
-                        ],
-                        "Thursday": [
-                            { "time": "16:00", "text": "урок4" }
-                        ],
-                        "Friday": [
-                            { "time": "17:00", "text": "урок5" }
-                        ]
-                    }
-                },
-                {
-                    "class2": {
-                        "Monday": [
-                            { "time": "09:00", "text": "урок6" }
-                        ],
-                        "Tuesday": [
-                            { "time": "10:00", "text": "урок7" }
-                        ],
-
-                    }
-                }
-
-            ];
-
-            function getLessons(className, dayName) {
-
-
-                for (let schedule of lists) {
-                    if (schedule.hasOwnProperty(className)) {
-                        let classSchedule = schedule[className];
-
-                        if (dayName === "all-days") {
-
-                            for (let day in classSchedule) {
-                                let lessons = classSchedule[day];
-                                lessons.forEach(lesson => {
-                                    const lessonDiv = document.createElement('tr');
-                                    lessonDiv.textContent = `${day}, ${lesson.time}, ${lesson.text}`;
-                                    newDiv.appendChild(lessonDiv);
-                                });
-
-                            }
-                        } else if (classSchedule.hasOwnProperty(dayName)) {
-                            let lessons = classSchedule[dayName];
-                            lessons.forEach(lesson => {
-                                const lessonDiv = document.createElement('tr');
-                                const dayCell = document.createElement('td');
-                                const timeCell = document.createElement('td');
-                                const textCell = document.createElement('td');
-
-                                newDiv.appendChild(lessonDiv);
-
-                            });
+            if (dayName === "all-days") {
+                for (const [day, lessons] of Object.entries(schedule)) {
+                    let lastTime = ""; // Для хранения времени последнего урока
+                    for (const lesson of lessons) {
+                        // Если время совпадает с последним
+                        if (lesson.time === lastTime) {
+                            result += `<tr><td></td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
                         } else {
-
-
+                            result += `<tr><td>${day}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
                         }
-                        return;
+                        lastTime = lesson.time; // Обновляем последнее время
                     }
                 }
-                let message = `Вибачте але інформації за даним классом:  відсутня`;
-
-                // Создание текстового узла и добавление его в новый div
-                let textNode = document.createTextNode(message);
-                newDiv.appendChild(textNode);
+            } else if (schedule[dayName]) {
+                const lessons = schedule[dayName];
+                for (const lesson of lessons) {
+                    result += `<tr><td>${dayName}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
+                }
+            } else {
+                result += `<tr><td colspan="3">Дані не знайдено для ${dayName}</td></tr>`;
             }
 
-            getLessons(className, dayName);
-            container.appendChild(newDiv);
+            result += "</table>";
+            document.getElementById("schedule").innerHTML = result;
         }
+
+        // Заполнение таблицы при загрузке страницы
+        createScheduleTable("all-days");
     </script>
-
-
-
 </body>
 
 </html>
