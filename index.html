@@ -102,7 +102,7 @@
                 if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
                     lists = data.list;
                     console.log("patch:", version);
-                    document.getElementById("version").innerHTML = `<p>"Version Patch: " + version + "<br>Date: " + formattedCurrentDate </p>`;
+                    document.getElementById("version").innerHTML = "<p> Version Patch: " + version + "<br>Date: " + formattedCurrentDate + "</p>";
                     console.log("Current Date is in range. Lists:", lists);
                     resolve(lists);
                     const size = lists.length;
