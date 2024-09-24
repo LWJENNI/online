@@ -47,8 +47,9 @@
 
 <body>
     <main>
-        <div style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center;">
-            <select name="date" id="date" style="margin: 10px 10px;">
+        <div
+            style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: list-item;">
+            <select name="date" id="date" style="margin: 10px 10px; ">
                 <option value="all-days" selected>Всі дні</option>
                 <option value="Monday">Понеділок</option>
                 <option value="Tuesday">Вівторок</option>
@@ -56,75 +57,112 @@
                 <option value="Thursday">Четвер</option>
                 <option value="Friday">П'ятниця</option>
             </select>
+            <div class="version" id="version" style="background-color: rgb(22, 148, 198);">
+                <p>Version Patch: 1.4</p>
+
+            </div>
         </div>
     </main>
     <aside>
         <div class="container" id="schedule"
             style="background-color: rgb(15, 106, 142); border-radius: 25px; text-align: center;"></div>
-        </aside>
-        <footer>
-            <div style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
-                Це не фінальний результат, <br> і розклад може бути змінений.
+    </aside>
+    <footer>
+        <div
+            style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
+            Це не фінальний результат, <br> і розклад може бути змінений.
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    </footer>
+    <article>
+        <div style="background-color: rgb(8, 96, 104); text-align: center; border-radius: 10px; width: 35%;">
+            Info
+            <div id="info" class="info">
+
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-        </footer>
+        </div>
+    </article>
 
     <script>
-        document.getElementById('date').addEventListener('change', updateContent);
-
-        const lists = [
-        {
-            "class7": {
-                "Monday": [{ "time": "15:00", "text": "Література" },{ "time": "16:00", "text": "Укр,Мова" },{ "time": "17:00", "text": "Біологія" },{ "time": "18:00", "text": "Українознавство" }],
-                "Tuesday": [{ "time": "15:00", "text": "Фізра" },{ "time": "16:00", "text": "Англ. Мова" },{ "time": "17:00", "text": "Здоров'я" },{ "time": "18:00", "text": "ФФізра" }],
-                "Wednesday": [{ "time": "15:00", "text": "Географія" },{ "time": "16:00", "text": "Математика Алгебра" },{ "time": "17:00", "text": "Фізра" }],
-                "Thursday": [{ "time": "14:00", "text": "Англ. Мова" },{ "time": "15:00", "text": "Укр. Мова" },{ "time": "16:00", "text": "Німецька факультатив " }],
-                "Friday": [{ "time": "15:00", "text": "Технології" },{ "time": "16:00", "text": "Історія" },{ "time": "17:00", "text": "Література" },{ "time": "18:00", "text": "Вихідні!" }]
+        let lists;
+    
+        function finish(data) {
+            return new Promise((resolve, reject) => {
+                const version = data.version;
+                const currentDate = new Date();
+                const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
+    
+                console.log("Current Formatted Date:", formattedCurrentDate);
+    
+                const startDate = data.date[0];
+                const endDate = data.date[1];
+    
+                if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
+                    lists = data.list;
+                    console.log("patch:", version);
+                    document.getElementById("version").innerHTML = "Version Patch: " + version + "<br>Date: " + formattedCurrentDate;
+                    console.log("Current Date is in range. Lists:", lists);
+                    resolve(lists);
+                    const size = lists.length;
+                    document.getElementById("info").innerHTML = "date: " + startDate + " " + endDate + " " + formattedCurrentDate + "<br> patch: " + version + "<br> Size L: " + size;
+                } else {
+                    console.log("Current Date is out of range.");
+                    reject("Current Date is out of range.");
+                }
+            });
+        }
+    
+    
+        const send = 'https://raw.githubusercontent.com/LWJENNI/online/main/date.json';
+    
+        fetch(send)
+            .then(response => response.json())
+            .then(data => finish(data))
+            .then(() => {
+                main();
+            })
+            .catch(error => console.error(error));
+        function main() {
+            document.getElementById('date').addEventListener('change', updateContent);
+            function updateContent() {
+                const dayValue = document.getElementById('date').value;
+                createScheduleTable(dayValue);
             }
-        }
-        ];
-
-        function updateContent() {
-            const dayValue = document.getElementById('date').value;
-            createScheduleTable(dayValue);
-        }
-
-        function createScheduleTable(dayName) {
-            const schedule = lists[0].class7;
-            let result = "<table class='dynamic-div'><tr><th>День тижня</th><th>Час</th><th>Урок</th></tr>";
-
-            if (dayName === "all-days") {
-                for (const [day, lessons] of Object.entries(schedule)) {
-                    let lastTime = ""; // Для хранения времени последнего урока
-                    for (const lesson of lessons) {
-                        // Если время совпадает с последним
-                        if (lesson.time === lastTime) {
-                            result += `<tr><td></td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
-                        } else {
-                            result += `<tr><td>${day}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
+            function createScheduleTable(dayName) {
+                const schedule = lists[0].class7;
+                let result = "<table class='dynamic-div'><tr><th>День тижня</th><th>Час</th><th>Урок</th></tr>";
+    
+                if (dayName === "all-days") {
+                    for (const [day, lessons] of Object.entries(schedule)) {
+                        let lastTime = ""; 
+                        for (const lesson of lessons) {
+                            if (lesson.time === lastTime) {
+                                result += `<tr><td></td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
+                            } else {
+                                result += `<tr><td>${day}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
+                            }
+                            lastTime = lesson.time;
                         }
-                        lastTime = lesson.time; // Обновляем последнее время
                     }
+                } else if (schedule[dayName]) {
+                    const lessons = schedule[dayName];
+                    for (const lesson of lessons) {
+                        result += `<tr><td>${dayName}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
+                    }
+                } else {
+                    result += `<tr><td colspan="3">Дані не знайдено для ${dayName}</td></tr>`;
                 }
-            } else if (schedule[dayName]) {
-                const lessons = schedule[dayName];
-                for (const lesson of lessons) {
-                    result += `<tr><td>${dayName}</td><td>${lesson.time}</td><td>${lesson.text}</td></tr>`;
-                }
-            } else {
-                result += `<tr><td colspan="3">Дані не знайдено для ${dayName}</td></tr>`;
+    
+                result += "</table>";
+                document.getElementById("schedule").innerHTML = result;
             }
-
-            result += "</table>";
-            document.getElementById("schedule").innerHTML = result;
+            createScheduleTable("all-days");
         }
-
-        // Заполнение таблицы при загрузке страницы
-        createScheduleTable("all-days");
     </script>
+    
 </body>
 
 </html>
