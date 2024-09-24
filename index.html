@@ -58,7 +58,6 @@
                 <option value="Friday">П'ятниця</option>
             </select>
             <div class="version" id="version" style="background-color: rgb(22, 148, 198);">
-                <p>Version Patch: 1.4</p>
 
             </div>
         </div>
@@ -78,7 +77,7 @@
         <br>
     </footer>
     <article>
-        <div style="background-color: rgb(8, 96, 104); text-align: center; border-radius: 10px; width: 35%;">
+        <div style="background-color: rgb(8, 96, 104); text-align: center; width: 35%;">
             Info
             <div id="info" class="info">
 
@@ -103,7 +102,7 @@
                 if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
                     lists = data.list;
                     console.log("patch:", version);
-                    document.getElementById("version").innerHTML = "Version Patch: " + version + "<br>Date: " + formattedCurrentDate;
+                    document.getElementById("version").innerHTML = `<p>"Version Patch: " + version + "<br>Date: " + formattedCurrentDate </p>`;
                     console.log("Current Date is in range. Lists:", lists);
                     resolve(lists);
                     const size = lists.length;
