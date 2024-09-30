@@ -1,8 +1,8 @@
 {
     "version": "0.1",
     "date": [
-        "2024.09.23",
-        "2024.09.29"
+        "2024.09.30",
+        "2024.10.04"
     ],
     "list": [
         {
@@ -10,106 +10,96 @@
                 "Monday": [
                     {
                         "time": "15:00",
-                        "middlelesson":"30m",
-                        "text": "Укр. Мова"
+                        "middlelesson": "30m",
+                        "text": "Фізика"
                     },
                     {
                         "time": "16:00",
-                        "middlelesson":"30m",
-                        "text": "Математика Геометрія"
+                        "middlelesson": "30m",
+                        "text": "Англійська мова"
                     },
                     {
                         "time": "17:00",
-                        "middlelesson":"30m",
-                        "text": "Математика Алгебра"
+                        "middlelesson": "30m",
+                        "text": "Здоров'я"
                     },
                     {
-                        "time": "18:00",
+                        "time":"18:00",
                         "middlelesson":"30m",
-                        "text": "інформатика"
-                    },
-                    {
-                        "time": "18:30",
-                        "middlelesson":"30m",
-                        "text": "Українознавство"
+                        "text":"Література"
                     }
                 ],
                 "Tuesday": [
                     {
                         "time": "15:00",
-                        "middlelesson":"30m",
-                        "text": "Література"
-                    },
-                    {
-                        "time": "16:00",
-                        "middlelesson":"30m",
+                        "middlelesson": "30m",
                         "text": "Фізика"
                     },
                     {
-                        "time": "17:00",
-                        "middlelesson":"30m",
-                        "text": "Історія"
+                        "time": "16:00",
+                        "middlelesson": "30m",
+                        "text": "Англійська мова"
                     },
                     {
-                        "time": "18:00",
-                        "middlelesson":"1h",
-                        "text": "Англ. Мова"
+                        "time":"17:00",
+                        "middlelesson":"30m",
+                        "text":"Здоров'я"
+                    },
+                    {
+                        "time":"18:00",
+                        "middlelesson":"30m",
+                        "text":"Література"
                     }
                 ],
                 "Wednesday": [
                     {
+                        "time": "14:00",
+                        "middlelesson": "30m",
+                        "text": "Географія"
+                    },
+                    {
                         "time": "15:00",
-                        "middlelesson":"1h",
-                        "text": "Англ. Мова"
+                        "middlelesson": "30m",
+                        "text": "Алгебра"
                     },
                     {
                         "time": "16:00",
-                        "middlelesson":"30m",
-                        "text": "Біологія"
-                    },
-                    {
-                        "time": "17:00",
-                        "middlelesson":"30m",
-                        "text": "Математика Алгебра"
-                    },
-                    {
-                        "time": "18:00",
-                        "middlelesson":"30m",
-                        "text": "Фізра"
+                        "middlelesson": "30m",
+                        "text": "Фізична культура"
                     }
                 ],
                 "Thursday": [
                     {
+                        "time": "14:00",
+                        "middlelesson": "30m",
+                        "text": "Англійська мова"
+                    },
+                    {
                         "time": "15:00",
-                        "middlelesson":"30m",
-                        "text": "Німецька факультатив "
+                        "middlelesson": "30m",
+                        "text": "Українська мова"
                     },
                     {
                         "time": "16:00",
-                        "middlelesson":"30m",
-                        "text": "Безпека. Пр"
-                    },
-                    {
-                        "time": "17:00",
-                        "middlelesson":"30m",
-                        "text": "Мистецтво"
+                        "middlelesson": "30m",
+                        "text": "Німецька"
                     }
                 ],
                 "Friday": [
                     {
+                        "time": "14:00",
+                        "middlelesson": "30m",
+                        "text": "Технології"
+                    },
+                    {
                         "time": "15:00",
-                        "middlelesson":"30m",
-                        "text": "Географія"
+                        "middlelesson": "30m",
+                        "text": "Історія"
                     },
                     {
                         "time": "16:00",
-                        "middlelesson":"30m",
-                        "text": "Хімія"
-                    },
-                    {
-                        "time": "17:00",
-                        "middlelesson":"30m",
-                        "text": "Історія"
+                        "middlelesson": "30m",
+                        "text": "Література"
                     }
                 ]
             }
