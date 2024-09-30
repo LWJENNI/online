@@ -9,97 +9,102 @@
             "class7": {
                 "Monday": [
                     {
-                        "time": "15:00",
+                        "time": "15.00",
                         "middlelesson": "30m",
-                        "text": "Фізика"
+                        "text": "ф-ра"
                     },
                     {
-                        "time": "16:00",
+                        "time": "16.00",
                         "middlelesson": "30m",
-                        "text": "Англійська мова"
+                        "text": "укр.м"
                     },
                     {
-                        "time": "17:00",
+                        "time": "17.00",
                         "middlelesson": "30m",
-                        "text": "Здоров'я"
+                        "text": "біолог"
                     },
                     {
-                        "time":"18:00",
-                        "middlelesson":"30m",
-                        "text":"Література"
+                        "time": "18.00",
+                        "middlelesson": "30m",
+                        "text": "матем(гео)"
                     }
                 ],
                 "Tuesday": [
                     {
-                        "time": "15:00",
+                        "time": "15.00",
                         "middlelesson": "30m",
-                        "text": "Фізика"
+                        "text": "фізика"
                     },
                     {
-                        "time": "16:00",
+                        "time": "16.00",
                         "middlelesson": "30m",
-                        "text": "Англійська мова"
+                        "text": "англ.м"
                     },
                     {
-                        "time":"17:00",
-                        "middlelesson":"30m",
-                        "text":"Здоров'я"
+                        "time": "17.00",
+                        "middlelesson": "30m",
+                        "text": "здоров'я"
                     },
                     {
-                        "time":"18:00",
-                        "middlelesson":"30m",
-                        "text":"Література"
+                        "time": "18. 00",
+                        "middlelesson": "30m",
+                        "text": "література"
                     }
                 ],
                 "Wednesday": [
                     {
-                        "time": "14:00",
+                        "time": "15.00",
                         "middlelesson": "30m",
-                        "text": "Географія"
+                        "text": "географія"
                     },
                     {
-                        "time": "15:00",
+                        "time": "16.00",
                         "middlelesson": "30m",
-                        "text": "Алгебра"
+                        "text": "матем(алг)"
                     },
                     {
-                        "time": "16:00",
+                        "time": "17.00",
                         "middlelesson": "30m",
-                        "text": "Фізична культура"
+                        "text": "ф-ра"
                     }
                 ],
                 "Thursday": [
                     {
-                        "time": "14:00",
+                        "time": "14.00",
                         "middlelesson": "30m",
-                        "text": "Англійська мова"
+                        "text": "англ.мова"
                     },
                     {
-                        "time": "15:00",
+                        "time": "15.00",
                         "middlelesson": "30m",
-                        "text": "Українська мова"
+                        "text": "укр.м"
                     },
                     {
-                        "time": "16:00",
+                        "time": "16.00",
                         "middlelesson": "30m",
-                        "text": "Німецька"
+                        "text": "німецька(ф)"
+                    },
+                    {
+                        "time": "17.00",
+                        "middlelesson": "30m",
+                        "text": "українознав"
                     }
                 ],
                 "Friday": [
                     {
-                        "time": "14:00",
+                        "time": "15.00",
                         "middlelesson": "30m",
-                        "text": "Технології"
+                        "text": "технології"
                     },
                     {
-                        "time": "15:00",
+                        "time": "16.00",
                         "middlelesson": "30m",
-                        "text": "Історія"
+                        "text": "істор"
                     },
                     {
-                        "time": "16:00",
+                        "time": "17.00",
                         "middlelesson": "30m",
-                        "text": "Література"
+                        "text": "література"
                     }
                 ]
             }
