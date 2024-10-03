@@ -1,5 +1,5 @@
 {
-    "version": "0.2.1",
+    "version": "0.3.1",
     "date": [
         "2024.09.30",
         "2024.10:04"
@@ -11,21 +11,29 @@
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
+                        "data-teacher":"Марина Бережанская",
+                        "data-link":"https://meet.google.com/tdn-mwny-ozt",
                         "text": "ф-ра"
                     },
                     {
                         "time": "16:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "укр.м"
                     },
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "біолог"
                     },
                     {
                         "time": "18:00",
                         "middlelesson": "30m",
+                        "data-teacher":"Марина Бережанская",
+                        "data-link":"https://meet.google.com/tdn-mwny-ozt",
                         "text": "матем(гео)"
                     }
                 ],
@@ -33,21 +41,29 @@
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "фізика"
                     },
                     {
                         "time": "16:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "англ.м"
                     },
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "здоров'я"
                     },
                     {
                         "time": "18:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "література"
                     }
                 ],
@@ -55,16 +71,22 @@
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "географія"
                     },
                     {
                         "time": "16:00",
                         "middlelesson": "30m",
+                        "data-teacher":"Марина Бережанская",
+                        "data-link":"https://meet.google.com/tdn-mwny-ozt",
                         "text": "матем(алг)"
                     },
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
+                        "data-teacher":"Марина Бережанская",
+                        "data-link":"https://meet.google.com/tdn-mwny-ozt",
                         "text": "ф-ра"
                     }
                 ],
@@ -72,21 +94,29 @@
                     {
                         "time": "14:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "англ.мова"
                     },
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "укр.м"
                     },
                     {
                         "time": "16:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "німецька(ф)"
                     },
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "українознав"
                     }
                 ],
@@ -94,16 +124,22 @@
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "технології"
                     },
                     {
                         "time": "16:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"https://meet.google.com/wui-vepp-qwx",
                         "text": "істор"
                     },
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
+                        "data-teacher":"none",
+                        "data-link":"none",
                         "text": "література"
                     }
                 ]
