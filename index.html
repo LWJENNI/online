@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Розклад</title>
+    <link rel="icon" href="ico.icon.png" type="image/x-icon">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userSize = window.innerWidth;
+            document.documentElement.style.setProperty('--use-size', `${userSize / 100}px`);
+        });
+
+    </script>
     <style>
+        :root {
+            --use-size: 16px;
+        }
+
         body {
             background-color: rgb(80, 141, 165);
         }
@@ -56,37 +68,108 @@
             font-size: calc(100% + 5px);
         }
 
-        .Monday.true {
+        .lessondiv {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100px;
+            background-color: rgba(38, 150, 187, 0.448);
+            border: 2px solid rgba(33, 156, 197, 0.448);
+            text-align: center;
+            line-height: calc(100% + 10px);
+            justify-content: space-between;
+            font-size: calc(100% + 5px);
+            border-radius: 10px;
+            padding: 10px;
+            padding-top: 2%;
+            margin: 5px 0;
+
+        }
+
+        .Monday {
             background: linear-gradient(to right, #3c8784, #34015b);
         }
 
-        .Tuesday.true {
+        .Tuesday {
             background: linear-gradient(to right, #285b59, #6c0189);
         }
 
-        .Wednesday.true {
+        .Wednesday {
             background: linear-gradient(to right, #274a49, #57036e);
         }
 
-        .Thursday.true {
+        .Thursday {
             background: linear-gradient(to right, #175755, #07015b);
         }
 
-        .Friday.true {
+        .Friday {
             background: linear-gradient(to right, #112726, #01255b);
         }
-        .Monday.false, .Tuesday.false, .Wednesday.false, .Thursday.false, .Friday.false {
-            background-color: rgb(15, 106, 142);
+
+        ::-webkit-scrollbar {
+            display: none;
         }
 
+        .lessond.text:hover {
+            background-color: red;
+        }
+
+        button {
+            background-color: rgb(15, 106, 142);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: calc(50% + 5px);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: rgb(35, 193, 207);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #error {
+            background: linear-gradient(to right, rgb(144, 35, 35), rgb(192, 22, 22));
+            text-align: center;
+            height: 100px;
+            border-radius: 10px;
+            border: solid rgb(114, 27, 27) 5px;
+        }
+
+        .fake-info {
+            position: absolute;
+            background-color: rgb(15, 106, 142);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            width: 250px;
+            margin-top: 20px;
+            left: 100%;
+            transform: translateX(calc(-100% - 10px));
+            z-index: 10;
+        }
     </style>
+    <meta name="author" content="LWJENNI">
+    <!-- <meta http-equiv="refresh" content="1;url=https://github.com/LWJENNI/online"> -->
 </head>
 
 <body>
     <main>
-        <div style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: list-item;">
+        <div
+            style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: list-item;">
             <select name="date" id="date" style="margin: 10px 10px;">
-                <option value="all-days" selected>Всі дні</option>
+                <option value="online">Сьогодні</option>
+                <option value="all" selected>Всі дні</option>
                 <option value="Monday">Понеділок</option>
                 <option value="Tuesday">Вівторок</option>
                 <option value="Wednesday">Середа</option>
@@ -94,18 +177,50 @@
                 <option value="Friday">П'ятниця</option>
             </select>
             <div class="version" id="version" style="background-color: rgb(22, 148, 198);"></div>
-            <div>
-                <label>
-                    <input type="checkbox" id="checkbox" checked> градієнт
-                </label>
-            </div>
+
         </div>
     </main>
     <aside>
         <div class="container" id="schedule"></div>
+
+        <div class="lessondiv" id="lessondiv">
+            <div class="lessondivset" id="lessondivset">
+                <div id="content">
+                    <p>lwjenni!</p>
+                </div>
+            </div>
+            <div id="toggle"
+                style="position: absolute; top: 5px; left: -10px; cursor: pointer; transition: transform 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 30px; height: 30px;">
+                    <path d="M12 0l-12 12h24z" />
+                </svg>
+            </div>
+
+
+            <script>
+                const lessondiv = document.getElementById('lessondiv');
+                toggle.style.transform = 'translateX(0) rotate(90deg)';
+
+
+                let isOpen = true;
+
+                toggle.addEventListener('click', () => {
+                    isOpen = !isOpen;
+
+                    if (isOpen) {
+                        lessondiv.style.transform = 'translateX(0)';
+
+                    } else {
+                        lessondiv.style.transform = 'translateX(90%)';
+                    }
+                });
+            </script>
+
+        </div>
     </aside>
     <footer>
-        <div style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
+        <div
+            style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
             Це не фінальний результат, <br> і розклад може бути змінений.
         </div>
         <br>
@@ -115,102 +230,234 @@
     </footer>
     <article>
         <div style="background-color: rgb(8, 96, 104); text-align: center; width: 35%;">
-            Info
+            Info (launcher BETA)
             <div id="info" class="info"></div>
         </div>
     </article>
 
     <script>
-        const checkbox = document.getElementById('checkbox');
-        let lists;
+        if ("script" == "script") {
 
-        function finish(data) {
-            return new Promise((resolve, reject) => {
-                const version = data.version;
-                const currentDate = new Date();
-                const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
+            let lists;
 
-                const startDate = data.date[0];
-                const endDate = data.date[1];
+            function finish(data) {
+                return new Promise((resolve, reject) => {
+                    const version = data.version;
+                    const currentDate = new Date();
+                    const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
 
-                if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
-                    lists = data.list;
-                    document.getElementById("version").innerHTML = "<p>Version Patch: " + version + "<br>Date: " + formattedCurrentDate + "</p>";
-                    resolve(lists);
-                    const size = lists.length;
-                    document.getElementById("info").innerHTML = "date: " + startDate + " " + endDate + " " + formattedCurrentDate + "<br> patch: " + version + "<br> Size L: " + size;
-                } else {
-                    reject("Current Date is out of range.");
+                    const startDate = data.date[0];
+                    const endDate = data.date[1];
+
+                    if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
+                        lists = data.list;
+                        document.getElementById("version").innerHTML = "<p>Version Patch: " + version + "<br>Date: " + formattedCurrentDate + "</p>";
+                        resolve(lists);
+                        const size = lists.length;
+                        document.getElementById("info").innerHTML = "date: " + startDate + " " + endDate + " " + formattedCurrentDate + "<br> patch: " + version + "<br> Size L: " + size;
+                    } else {
+                        reject("Current Date is out of range.");
+                    }
+                });
+            }
+
+            const send = 'https://raw.githubusercontent.com/LWJENNI/online/main/date.json';
+
+            fetch(send)
+                .then(response => response.json())
+                .then(data => finish(data))
+                .then(() => {
+                    main();
+                })
+                .catch(error => console.error(error));
+
+            //             MAIN               //
+
+            function main() {
+                document.getElementById('date').addEventListener('change', updateContent);
+
+
+                function updateContent() {
+                    const dayValue = document.getElementById('date').value;
+                    createScheduleTable(dayValue);
                 }
-            });
-        }
 
-        const send = 'https://raw.githubusercontent.com/LWJENNI/online/main/date.json';
+                function translateDay(day) {
+                    const dayTranslations = {
+                        "Monday": "Понеділок",
+                        "Tuesday": "Вівторок",
+                        "Wednesday": "Середа",
+                        "Thursday": "Четвер",
+                        "Friday": "П'ятниця"
+                    };
+                    return dayTranslations[day] || day;
+                }
 
-        fetch(send)
-            .then(response => response.json())
-            .then(data => finish(data))
-            .then(() => {
-                main();
-            })
-            .catch(error => console.error(error));
+                function createScheduleTable(dayName) {
+                    const schedule = lists[0].class7;
+                    let html = "";
 
-        function main() {
-            document.getElementById('date').addEventListener('change', updateContent);
-            checkbox.addEventListener('change', updateContent);
+                    switch (dayName) {
+                        case "online":
+                            const now = new Date();
+                            const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
+                            const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // hh:mm
+                            if (dayOfWeek === "Saturday" || dayOfWeek === "Sunday") {
+                                html += `<div><div id="error"><h2>Упс! В розкладі немає інформації про даний день: ${dayOfWeek}.</h2></div></div>`;
+                                document.getElementById("schedule").innerHTML = html;
+                                break;
+                            }
+                            const lesson = schedule[dayOfWeek];
+                            html += `<div class='day-schedule ${dayOfWeek}'><h3>${translateDay(dayOfWeek)}</h3>`;
+                            for (json of lesson) {
+                                html += `
+<div class="lesson">
+    <div id="time">${json.time}</div>
+    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}' data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
+</div>
+                                `;
 
-            function updateContent() {
-                const dayValue = document.getElementById('date').value;
-                createScheduleTable(dayValue);
-            }
+                            }
+                            html += `</div>`;
+                            document.getElementById("schedule").innerHTML = html;
+                            break;
 
-            function translateDay(day) {
-                const dayTranslations = {
-                    "Monday": "Понеділок",
-                    "Tuesday": "Вівторок",
-                    "Wednesday": "Середа",
-                    "Thursday": "Четвер",
-                    "Friday": "П'ятниця"
-                };
-                return dayTranslations[day] || day;
-            }
+                        case "all":
 
-            function createScheduleTable(dayName) {
-                const schedule = lists[0].class7;
-                let result = "";
+                            days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+                            for (day of days) {
+                                if (schedule.hasOwnProperty(day)) {
+                                    html += `<div class='day-schedule ${day}'><h3>${translateDay(day)}</h3>`;
+                                    for (json of schedule[day]) {
+                                        html += `
+<div class="lesson">
+    <div id="time">${json.time}</div>
+    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
+</div>
+                                    `;
+                                    }
+                                    html += `</div>`;
+                                    document.getElementById("schedule").innerHTML = html;
+                                }
+                            }
+                            break;
 
-                const useGradient = checkbox.checked;
+                        default:
+                            if (dayName !== "online" && dayName !== "all") {
+                                const lesson = schedule[dayName];
+                                html += `<div class='day-schedule ${dayName}'><h3>${translateDay(dayName)}</h3>`;
+                                for (json of lesson) {
+                                    html += `
+<div class="lesson">
+    <div id="time">${json.time}</div>
+    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
+</div>
+                                `;
 
-                if (dayName === "all-days") {
-                    for (const [day, lessons] of Object.entries(schedule)) {
-                        const translatedDay = translateDay(day);
-                        result += `<div class='day-schedule ${day} ${useGradient ? "true" : "false"}'><h3>${translatedDay}</h3>`;
-                        for (const json of Object.entries(lessons)) {
-                            const value = json[1];
-                            result += `<div class='lesson'><span>${value.time}</span><span>${value.text}</span></div>`;
+                                }
+                                html += `</div>`;
+                                document.getElementById("schedule").innerHTML = html;
+                                break;
+                            }
+                    }
+
+
+                }
+
+                createScheduleTable("all");
+                startCurrentLessonCheck();
+
+
+                const buttons = document.querySelectorAll('.text');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const lesson = this.getAttribute('data-lesson');
+                        const teacher = this.getAttribute('data-teacher');
+                        const time = this.getAttribute('data-time'); // Время начала урока
+                        const duration = this.getAttribute('data-duration'); // Длительность в минутах
+                        const link = this.getAttribute('data-link');
+
+                        // Вычисляем время окончания урока
+                        const [startHour, startMinute] = time.split(':').map(Number);
+                        const durationMinutes = parseInt(duration);
+                        const endTime = new Date();
+                        endTime.setHours(startHour, startMinute + durationMinutes, 0, 0);
+
+                        const endHour = String(endTime.getHours()).padStart(2, '0');
+                        const endMinute = String(endTime.getMinutes()).padStart(2, '0');
+
+                        // Находим фейковый контейнер для информации
+                        const fakeInfoDiv = this.nextElementSibling;
+
+                        // Проверяем, виден ли div
+                        if (fakeInfoDiv.style.display === 'none' || fakeInfoDiv.style.display === '') {
+                            let html = `<div style="color: rgb(36, 41, 74);">`;
+                            html += `<h2>Урок: ${lesson}</h2>`;
+                            if (teacher != "none") {html += `<p><strong>Вчитель:</strong> ${teacher}</p>`;} else { html += `<p>Вчителя немає</p>`; }
+                            if (duration != "none") {html += `<p><strong>Тривалість:</strong> ${duration}</p>`;} else { html += `<p>Немає інформації</p>`;}
+                            html += `<p><strong>Урок:</strong> ${time} - ${endHour}:${endMinute}</p>`;
+                            if (link != "none") {
+                                html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`;
+                            } else {
+                                html += `<p style="color: rgb(40, 47, 96);">Посилання немає</p>`;
+                            }
+                            html += `<p></p>`;
+                            html += `</div>`;
+                            fakeInfoDiv.innerHTML = html;
+                            fakeInfoDiv.style.display = 'block';
+                        } else {
+                            fakeInfoDiv.style.display = 'none';
                         }
-                        result += "</div>";
-                    }
-                } else if (schedule[dayName]) {
-                    const translatedDay = translateDay(dayName);
-                    const lessons = schedule[dayName];
-                    result += `<div class='day-schedule ${dayName} ${useGradient ? "true" : "false"}'><h3>${translatedDay}</h3>`;
-                    for (const lesson of lessons) {
-                        result += `<div class='lesson'><span>${lesson.time}</span><span>${lesson.text}</span></div>`;
-                    }
-                    result += "</div>";
-                } else {
-                    const translatedDay = translateDay(dayName);
-                    result += `<div class='day-schedule ${dayName} ${useGradient ? "true" : "false"}'><h3>${translatedDay}</h3><p>Дані не знайдено для ${translatedDay}</p></div>`;
-                }
+                    });
+                });
 
-                document.getElementById("schedule").innerHTML = result;
+
+
             }
 
-            createScheduleTable("all-days");
+            function getCurrentLesson() {
+                const now = new Date();
+                const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
+                const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // hh:mm
+                const lessonsToday = lists[0].class7[dayOfWeek];
+
+                if (lessonsToday) {
+                    for (const lesson of lessonsToday) {
+                        const [lessonHour, lessonMinute] = lesson.time.split(':').map(Number);
+                        const lessonStart = new Date(now);
+                        lessonStart.setHours(lessonHour, lessonMinute, 0, 0);
+
+                        const durationMinutes = parseInt(lesson.middlelesson) || 0;
+                        const lessonEnd = new Date(lessonStart.getTime() + durationMinutes * 60000);
+
+                        const currentDateTime = new Date(now);
+                        const currentHour = currentTime.split(':').map(Number);
+                        currentDateTime.setHours(currentHour[0], currentHour[1], 0, 0);
+
+                        if (currentDateTime >= lessonStart && currentDateTime < lessonEnd) {
+                            return `Зараз урок: ${lesson.text}`;
+                        }
+                    }
+                }
+                return `Немає`;
+            }
+
+            function startCurrentLessonCheck() {
+                function checkLesson() {
+                    document.getElementById("content").innerHTML = getCurrentLesson();
+
+                    const now = new Date();
+                    const secondsToWait = 60 - now.getSeconds();
+                    setTimeout(checkLesson, secondsToWait * 1000);
+                }
+                checkLesson();
+            }
         }
     </script>
-
 </body>
 
 </html>
