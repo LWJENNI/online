@@ -133,6 +133,20 @@
             transform: scale(0.95);
         }
 
+        .links:hover {
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+
+        #date:hover {
+            transform: scale(0.98);
+            transition: transform 0.3s;
+        }
+
+        .version {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         button:disabled {
             background-color: #cccccc;
             cursor: not-allowed;
@@ -166,8 +180,14 @@
 <body>
     <main>
         <div
-            style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: list-item;">
-            <select name="date" id="date" style="margin: 10px 10px;">
+            style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: flex; justify-content: center; align-items: center; padding: 10px;">
+
+            <div class="links"
+                style="margin: 0 10px; background-color: rgb(53, 157, 198); padding: 20px 20px; border-radius: 10px;  display: none;">
+                <a href="news.html" style=" color: rgb(50, 95, 112);">News</a>
+            </div>
+
+            <select name="date" id="date" style="margin: 0 10px; padding: 20px 20px;">
                 <option value="online">Сьогодні</option>
                 <option value="all" selected>Всі дні</option>
                 <option value="Monday">Понеділок</option>
@@ -176,10 +196,33 @@
                 <option value="Thursday">Четвер</option>
                 <option value="Friday">П'ятниця</option>
             </select>
-            <div class="version" id="version" style="background-color: rgb(22, 148, 198);"></div>
+
+            <div class="version" id="version"
+                style="background-color: rgb(19, 118, 157); margin: 0 10px; padding: 0px 10px; border-radius: 10px;">
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const bendableDiv = document.querySelector('.version');
+
+                        bendableDiv.addEventListener('mousemove', (event) => {
+                            const { offsetX, offsetY } = event;
+                            const { clientWidth, clientHeight } = bendableDiv;
+
+                            const x = (offsetX / clientWidth - 0.5) * 2;
+                            const y = (offsetY / clientHeight - 0.5) * -2;
+
+                            bendableDiv.style.transform = `perspective(500px) rotateX(${y * 10}deg) rotateY(${x * -10}deg)`;
+                        });
+
+                        bendableDiv.addEventListener('mouseleave', () => {
+                            bendableDiv.style.transform = 'rotateX(0) rotateY(0)';
+                        });
+                    });
+                </script>
+            </div>
 
         </div>
     </main>
+
     <aside>
         <div class="container" id="schedule"></div>
 
@@ -198,9 +241,9 @@
 
 
             <script>
+                const speed = 20;
                 const lessondiv = document.getElementById('lessondiv');
                 toggle.style.transform = 'translateX(0) rotate(90deg)';
-
 
                 let isOpen = true;
 
@@ -208,10 +251,69 @@
                     isOpen = !isOpen;
 
                     if (isOpen) {
-                        lessondiv.style.transform = 'translateX(0)';
+                        toggle.style.transform = 'translateX(0) rotate(90deg)'
+                        lessondiv.style.transform = 'translateX(90%)';
+                        setTimeout(() => {
+                            lessondiv.style.transform = 'translateX(80%)';
+                            setTimeout(() => {
+                                lessondiv.style.transform = 'translateX(70%)';
+                                setTimeout(() => {
+                                    lessondiv.style.transform = 'translateX(60%)';
+                                    setTimeout(() => {
+                                        lessondiv.style.transform = 'translateX(50%)';
+                                        setTimeout(() => {
+                                            lessondiv.style.transform = 'translateX(40%)';
+                                            setTimeout(() => {
+                                                lessondiv.style.transform = 'translateX(30%)';
+                                                setTimeout(() => {
+                                                    lessondiv.style.transform = 'translateX(20%)';
+                                                    setTimeout(() => {
+                                                        lessondiv.style.transform = 'translateX(10%)';
+                                                        setTimeout(() => {
+                                                            lessondiv.style.transform = 'translateX(0%)';
+
+                                                        }, speed);
+                                                    }, speed);
+                                                }, speed);
+                                            }, speed);
+                                        }, speed);
+                                    }, speed);
+                                }, speed);
+                            }, speed);
+                        }, speed);
 
                     } else {
-                        lessondiv.style.transform = 'translateX(90%)';
+                        toggle.style.transform = 'translateX(50%) rotate(270deg)'
+                        lessondiv.style.transform = 'translateX(0%)';
+                        setTimeout(() => {
+                            lessondiv.style.transform = 'translateX(10%)';
+                            setTimeout(() => {
+                                lessondiv.style.transform = 'translateX(20%)';
+                                setTimeout(() => {
+                                    lessondiv.style.transform = 'translateX(30%)';
+                                    setTimeout(() => {
+                                        lessondiv.style.transform = 'translateX(40%)';
+                                        setTimeout(() => {
+                                            lessondiv.style.transform = 'translateX(50%)';
+                                            setTimeout(() => {
+                                                lessondiv.style.transform = 'translateX(60%)';
+                                                setTimeout(() => {
+                                                    lessondiv.style.transform = 'translateX(70%)';
+                                                    setTimeout(() => {
+                                                        lessondiv.style.transform = 'translateX(80%)';
+                                                        setTimeout(() => {
+                                                            lessondiv.style.transform = 'translateX(90%)';
+
+                                                        }, speed);
+                                                    }, speed);
+                                                }, speed);
+                                            }, speed);
+                                        }, speed);
+                                    }, speed);
+                                }, speed);
+                            }, speed);
+                        }, speed);
+
                     }
                 });
             </script>
@@ -251,7 +353,7 @@
 
                     if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
                         lists = data.list;
-                        document.getElementById("version").innerHTML = "<p>Version Patch: " + version + "<br>Date: " + formattedCurrentDate + "</p>";
+                        document.getElementById("version").innerHTML = `<div class="contentv"><p>Version Patch: ${version} <br>Date: ${formattedCurrentDate} </p></div>`;
                         resolve(lists);
                         const size = lists.length;
                         document.getElementById("info").innerHTML = "date: " + startDate + " " + endDate + " " + formattedCurrentDate + "<br> patch: " + version + "<br> Size L: " + size;
@@ -311,16 +413,17 @@
                             html += `<div class='day-schedule ${dayOfWeek}'><h3>${translateDay(dayOfWeek)}</h3>`;
                             for (json of lesson) {
                                 html += `
-<div class="lesson">
-    <div id="time">${json.time}</div>
-    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}' data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
-    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
-</div>
+                                    <div class="lesson">
+                                    <div id="time">${json.time}</div>
+                                    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}' data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+                                    <div class="fake-info" style="display: none;"></div>
+                                    </div>
                                 `;
 
                             }
                             html += `</div>`;
                             document.getElementById("schedule").innerHTML = html;
+                            infolesson();
                             break;
 
                         case "all":
@@ -331,17 +434,18 @@
                                     html += `<div class='day-schedule ${day}'><h3>${translateDay(day)}</h3>`;
                                     for (json of schedule[day]) {
                                         html += `
-<div class="lesson">
-    <div id="time">${json.time}</div>
-    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
-    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
-</div>
+                                    <div class="lesson">
+                                    <div id="time">${json.time}</div>
+                                    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+                                    <div class="fake-info" style="display: none;"></div>
+                                    </div>
                                     `;
                                     }
                                     html += `</div>`;
                                     document.getElementById("schedule").innerHTML = html;
                                 }
                             }
+                            infolesson();
                             break;
 
                         default:
@@ -350,16 +454,17 @@
                                 html += `<div class='day-schedule ${dayName}'><h3>${translateDay(dayName)}</h3>`;
                                 for (json of lesson) {
                                     html += `
-<div class="lesson">
-    <div id="time">${json.time}</div>
-    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
-    <div class="fake-info" style="display: none;"></div> <!-- Фейковый div -->
-</div>
+                                    <div class="lesson">
+                                    <div id="time">${json.time}</div>
+                                    <button class="text" data-lesson='${json.text}' data-teacher='${json.teacher}' data-time='${json.time}'  data-duration='${json.middlelesson}' data-link='${json.link}'>${json.text}</button>
+                                    <div class="fake-info" style="display: none;"></div>
+                                    </div>
                                 `;
 
                                 }
                                 html += `</div>`;
                                 document.getElementById("schedule").innerHTML = html;
+                                infolesson();
                                 break;
                             }
                     }
@@ -369,19 +474,25 @@
 
                 createScheduleTable("all");
                 startCurrentLessonCheck();
+            }
 
 
+
+            //             MAIN               //
+
+
+
+
+            function infolesson() {
                 const buttons = document.querySelectorAll('.text');
-
                 buttons.forEach(button => {
                     button.addEventListener('click', function () {
                         const lesson = this.getAttribute('data-lesson');
                         const teacher = this.getAttribute('data-teacher');
-                        const time = this.getAttribute('data-time'); // Время начала урока
-                        const duration = this.getAttribute('data-duration'); // Длительность в минутах
+                        const time = this.getAttribute('data-time');
+                        const duration = this.getAttribute('data-duration');
                         const link = this.getAttribute('data-link');
 
-                        // Вычисляем время окончания урока
                         const [startHour, startMinute] = time.split(':').map(Number);
                         const durationMinutes = parseInt(duration);
                         const endTime = new Date();
@@ -390,15 +501,13 @@
                         const endHour = String(endTime.getHours()).padStart(2, '0');
                         const endMinute = String(endTime.getMinutes()).padStart(2, '0');
 
-                        // Находим фейковый контейнер для информации
                         const fakeInfoDiv = this.nextElementSibling;
 
-                        // Проверяем, виден ли div
                         if (fakeInfoDiv.style.display === 'none' || fakeInfoDiv.style.display === '') {
                             let html = `<div style="color: rgb(36, 41, 74);">`;
                             html += `<h2>Урок: ${lesson}</h2>`;
-                            if (teacher != "none") {html += `<p><strong>Вчитель:</strong> ${teacher}</p>`;} else { html += `<p>Вчителя немає</p>`; }
-                            if (duration != "none") {html += `<p><strong>Тривалість:</strong> ${duration}</p>`;} else { html += `<p>Немає інформації</p>`;}
+                            if (teacher != "none") { html += `<p><strong>Вчитель:</strong> ${teacher}</p>`; } else { html += `<p>Вчителя немає</p>`; }
+                            if (duration != "none") { html += `<p><strong>Тривалість:</strong> ${duration}</p>`; } else { html += `<p>Немає інформації</p>`; }
                             html += `<p><strong>Урок:</strong> ${time} - ${endHour}:${endMinute}</p>`;
                             if (link != "none") {
                                 html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`;
@@ -414,11 +523,7 @@
                         }
                     });
                 });
-
-
-
             }
-
             function getCurrentLesson() {
                 const now = new Date();
                 const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
