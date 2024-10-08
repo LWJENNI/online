@@ -115,8 +115,8 @@
                     {
                         "time": "17:00",
                         "middlelesson": "30m",
-                        "teacher": "",
-                        "link": "",
+                        "teacher": "Людмила",
+                        "link": "https://meet.google.com/gfo-vdsu-tvp",
                         "text": "мистец"
                     }
                 ],
@@ -124,7 +124,7 @@
                     {
                         "time": "15:00",
                         "middlelesson": "30m",
-                        "teacher": "none",
+                        "teacher": "Олена Улитич",
                         "link": "https://meet.google.com/wsm-ejhj-zcb?authuser=0",
                         "text": "географ"
                     },
