@@ -172,6 +172,10 @@
             transform: translateX(calc(-100% - 10px));
             z-index: 10;
         }
+
+        .lessondiv {
+            transition: transform 1s ease;
+        }
     </style>
     <meta name="author" content="LWJENNI">
     <!-- <meta http-equiv="refresh" content="1;url=https://github.com/LWJENNI/online"> -->
@@ -233,7 +237,7 @@
                 </div>
             </div>
             <div id="toggle"
-                style="position: absolute; top: 5px; left: -10px; cursor: pointer; transition: transform 0.3s ease;">
+                style="position: absolute; top: 5px; left: -10px; cursor: pointer; transition: transform 1s ease;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 30px; height: 30px;">
                     <path d="M12 0l-12 12h24z" />
                 </svg>
@@ -241,81 +245,29 @@
 
 
             <script>
-                const speed = 20;
                 const lessondiv = document.getElementById('lessondiv');
-                toggle.style.transform = 'translateX(0) rotate(90deg)';
-
-                let isOpen = true;
+                const toggle = document.getElementById('toggle');
+                let isOpen = false;
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    lessondiv.style.transform = `translateX(90%)`;
+                    toggle.style.transform = 'translateX(50%) rotate(270deg)';
+                } else {
+                    lessondiv.style.transform = `translateX(0%)`;
+                    toggle.style.transform = 'translateX(0) rotate(90deg)';
+                }
 
                 toggle.addEventListener('click', () => {
                     isOpen = !isOpen;
 
                     if (isOpen) {
-                        toggle.style.transform = 'translateX(0) rotate(90deg)'
-                        lessondiv.style.transform = 'translateX(90%)';
-                        setTimeout(() => {
-                            lessondiv.style.transform = 'translateX(80%)';
-                            setTimeout(() => {
-                                lessondiv.style.transform = 'translateX(70%)';
-                                setTimeout(() => {
-                                    lessondiv.style.transform = 'translateX(60%)';
-                                    setTimeout(() => {
-                                        lessondiv.style.transform = 'translateX(50%)';
-                                        setTimeout(() => {
-                                            lessondiv.style.transform = 'translateX(40%)';
-                                            setTimeout(() => {
-                                                lessondiv.style.transform = 'translateX(30%)';
-                                                setTimeout(() => {
-                                                    lessondiv.style.transform = 'translateX(20%)';
-                                                    setTimeout(() => {
-                                                        lessondiv.style.transform = 'translateX(10%)';
-                                                        setTimeout(() => {
-                                                            lessondiv.style.transform = 'translateX(0%)';
-
-                                                        }, speed);
-                                                    }, speed);
-                                                }, speed);
-                                            }, speed);
-                                        }, speed);
-                                    }, speed);
-                                }, speed);
-                            }, speed);
-                        }, speed);
-
+                        toggle.style.transform = 'translateX(0) rotate(90deg)';
+                        lessondiv.style.transform = `translateX(0%)`;
                     } else {
-                        toggle.style.transform = 'translateX(50%) rotate(270deg)'
-                        lessondiv.style.transform = 'translateX(0%)';
-                        setTimeout(() => {
-                            lessondiv.style.transform = 'translateX(10%)';
-                            setTimeout(() => {
-                                lessondiv.style.transform = 'translateX(20%)';
-                                setTimeout(() => {
-                                    lessondiv.style.transform = 'translateX(30%)';
-                                    setTimeout(() => {
-                                        lessondiv.style.transform = 'translateX(40%)';
-                                        setTimeout(() => {
-                                            lessondiv.style.transform = 'translateX(50%)';
-                                            setTimeout(() => {
-                                                lessondiv.style.transform = 'translateX(60%)';
-                                                setTimeout(() => {
-                                                    lessondiv.style.transform = 'translateX(70%)';
-                                                    setTimeout(() => {
-                                                        lessondiv.style.transform = 'translateX(80%)';
-                                                        setTimeout(() => {
-                                                            lessondiv.style.transform = 'translateX(90%)';
-
-                                                        }, speed);
-                                                    }, speed);
-                                                }, speed);
-                                            }, speed);
-                                        }, speed);
-                                    }, speed);
-                                }, speed);
-                            }, speed);
-                        }, speed);
-
+                        toggle.style.transform = 'translateX(50%) rotate(270deg)';
+                        lessondiv.style.transform = `translateX(90%)`;
                     }
                 });
+
             </script>
 
         </div>
@@ -339,6 +291,8 @@
 
     <script>
         if ("script" == "script") {
+
+
 
             let lists;
 
