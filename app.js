@@ -12,15 +12,11 @@ if ("script" == "script") {
             const startDate = data.date[0];
             const endDate = data.date[1];
 
-            if (formattedCurrentDate >= startDate && formattedCurrentDate <= endDate) {
                 lists = data.list;
                 document.getElementById("version").innerHTML = `<div class="contentv"><p>Version Patch: ${version} <br>Date: ${formattedCurrentDate} </p></div>`;
                 resolve(lists);
                 const size = lists.length;
                 document.getElementById("info").innerHTML = "date: " + startDate + " " + endDate + " " + formattedCurrentDate + "<br> patch: " + version + "<br> Size L: " + size;
-            } else {
-                reject("Current Date is out of range.");
-            }
         });
     }
 
