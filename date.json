@@ -1,149 +1,149 @@
 {
-    "version": "0.3.4",
-    "date": [
-        "2024.10.14",
-        "2024.10.20"
-    ],
-    "list": [
-      {
-        "class7": {
-          "Monday": [
-            {
-              "time": "15:00",
-              "middlelesson": "30m",
-              "teacher": "Марина Бережанская",
-              "link": "https://meet.google.com/tdn-mwny-ozt",
-              "text": "Фізра"
-            },
-            {
-              "time": "16:00",
-              "middlelesson": "30m",
-              "teacher": "Тамила",
-              "link": "https://meet.google.com/def-efeh-dgg",
-              "text": "Українська мова"
-            },
-            {
-              "time": "17:00",
-              "middlelesson": "30m",
-              "teacher": "Олена Улитич",
-              "link": "https://meet.google.com/oqz-jste-qbz?authuser=0&hs=179",
-              "text": "Біологія"
-            },
-            {
-              "time": "18:00",
-              "middlelesson": "30m",
-              "teacher": "nan",
-              "link": "nan",
-              "text": "матем(гео)"
-            }
-          ],
-          "Tuesday": [
-            {
-              "time": "15:00",
-              "middlelesson": "30m",
-              "teacher": "Лариса",
-              "link": "https://meet.google.com/zzh-jgak-vjz",
-              "text": "Фізика"
-            },
-            {
-              "time": "16:00",
-              "middlelesson": "30m",
-              "teacher": "Аліна Петрівна",
-              "link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09",
-              "text": "Англіська мова"
-            },
-            {
-              "time": "17:00",
-              "middlelesson": "30m",
-              "teacher": "Олена Улитич",
-              "link": "https://meet.google.com/zqz-thxe-uqp",
-              "text": "Здоров'я"
-            },
-            {
-              "time": "18:00",
-              "middlelesson": "30m",
-              "teacher": "Тамила",
-              "link": "https://meet.google.com/jgi-whii-oyx",
-              "text": "Література"
-            }
-          ],
-          "Wednesday": [
-            {
-              "time": "15:00",
-              "middlelesson": "30m",
-              "teacher": "Олена Улитич",
-              "link": "https://meet.google.com/wsm-ejhj-zcb?authuser=0",
-              "text": "Географія"
-            },
-            {
-              "time": "16:00",
-              "middlelesson": "30m",
-              "teacher": "nan",
-              "link": "nan",
-              "text": "матем(алг)"
-            },
-            {
-              "time": "17:00",
-              "middlelesson": "30m",
-              "teacher": "Марина Бережанская",
-              "link": "https://meet.google.com/tdn-mwny-ozt",
-              "text": "Фізра"
-            }
-          ],
-          "Thursday": [
-            {
-              "time": "14:00",
-              "middlelesson": "30m",
-              "teacher": "Аліна Петрівна",
-              "link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09",
-              "text": "Англіська мова"
-            },
-            {
-              "time": "15:00",
-              "middlelesson": "30m",
-              "teacher": "Тамила",
-              "link": "https://meet.google.com/def-efeh-dgg",
-              "text": "Українська мова"
-            },
-            {
-              "time": "16:00",
-              "middlelesson": "30m",
-              "teacher": "nan",
-              "link": "nan",
-              "text": "німецька(ф)"
-            },
-            {
-              "time": "17:00",
-              "middlelesson": "30m",
-              "teacher": "nan",
-              "link": "https://meet.google.com/pdr-kanv-gwm",
-              "text": "Українознавство"
-            }
-          ],
-          "Friday": [
-            {
-              "time": "15:00",
-              "middlelesson": "30m",
-              "teacher": "Людмила",
-              "link": "https://meet.google.com/gfo-vdsu-tvp",
-              "text": "Технології"
-            },
-            {
-              "time": "16:00",
-              "middlelesson": "30m",
-              "teacher": "Ірина Бордюг",
-              "link": "https://meet.google.com/wui-vepp-qwx",
-              "text": "Історія"
-            },
-            {
-              "time": "17:00",
-              "middlelesson": "30m",
-              "teacher": "Тамила",
-              "link": "https://meet.google.com/jgi-whii-oyx",
-              "text": "Література"
-            }
-          ]
-        }
+  "version": "0.3.4",
+  "date": [
+    "2024.21.10",
+    "2024.25.10"
+  ],
+  "list": [
+    {
+      "class7": {
+        "Monday": [
+          {
+            "time": "15:00",
+            "middlelesson": "30m",
+            "teacher": "Тамила",
+            "link": "https://meet.google.com/def-efeh-dgg",
+            "text": "Українська мова"
+          },
+          {
+            "time": "16:00",
+            "middlelesson": "30m",
+            "teacher": "Марина Бережанская",
+            "link": "https://meet.google.com/tdn-mwny-ozt",
+            "text": "матем(гео)"
+          },
+          {
+            "time": "17:00",
+            "middlelesson": "30m",
+            "teacher": "Марина Бережанская",
+            "link": "https://meet.google.com/tdn-mwny-ozt",
+            "text": "матем(алг)"
+          },
+          {
+            "time": "18:00",
+            "middlelesson": "30m",
+            "teacher": "Олена Хряпіна",
+            "link": "https://meet.google.com/wnc-tozp-rcu",
+            "text": "Інформатика"
+          }
+        ],
+        "Tuesday": [
+          {
+            "time": "14:00",
+            "middlelesson": "30m",
+            "teacher": "Аліна Петрівна",
+            "link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09",
+            "text": "Англіська мова"
+          },
+          {
+            "time": "15:00",
+            "middlelesson": "30m",
+            "teacher": "Тамила",
+            "link": "https://meet.google.com/jgi-whii-oyx",
+            "text": "Література"
+          },
+          {
+            "time": "16:00",
+            "middlelesson": "30m",
+            "teacher": "Лариса",
+            "link": "https://meet.google.com/zzh-jgak-vjz",
+            "text": "Фізика"
+          },
+          {
+            "time": "17:00",
+            "middlelesson": "30m",
+            "teacher": "Ірина Бордюг",
+            "link": "https://meet.google.com/wui-vepp-qwx",
+            "text": "Історія"
+          }
+        ],
+        "Wednesday": [
+          {
+            "time": "15:00",
+            "middlelesson": "30m",
+            "teacher": "Аліна Петрівна",
+            "link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09",
+            "text": "Англіська мова"
+          },
+          {
+            "time": "16:00",
+            "middlelesson": "30m",
+            "teacher": "Олена Улитич",
+            "link": "https://meet.google.com/oqz-jste-qbz?authuser=0&hs=179",
+            "text": "Біологія"
+          },
+          {
+            "time": "17:00",
+            "middlelesson": "30m",
+            "teacher": "Марина Бережанская",
+            "link": "https://meet.google.com/tdn-mwny-ozt",
+            "text": "матем(алг)"
+          },
+          {
+            "time": "18:00",
+            "middlelesson": "30m",
+            "teacher": "Марина Бережанская",
+            "link": "https://meet.google.com/tdn-mwny-ozt",
+            "text": "Фізра"
+          }
+        ],
+        "Thursday": [
+          {
+            "time": "15:00",
+            "middlelesson": "30m",
+            "teacher": "Людмила",
+            "link": "https://meet.google.com/xzt-eqsm-nvb",
+            "text": "німецька(ф)"
+          },
+          {
+            "time": "16:00",
+            "middlelesson": "30m",
+            "teacher": "Олена Улитич",
+            "link": "https://meet.google.com/qwa-rhcu-qni?authuser=0&hs=179",
+            "text": "безпек.пр"
+          },
+          {
+            "time": "17:00",
+            "middlelesson": "30m",
+            "teacher": "Людмила",
+            "link": "https://meet.google.com/gfo-vdsu-tvp",
+            "text": "Мистетство"
+          },
+          {
+            "time": "18:00",
+            "middlelesson": "30m",
+            "teacher": "Ірина Бордюг",
+            "link": "https://meet.google.com/wui-vepp-qwx",
+            "text": "Історія"
+          }
+        ],
+        "Friday": [
+          {
+            "time": "15:00",
+            "middlelesson": "30m",
+            "teacher": "Олена Улитич",
+            "link": "https://meet.google.com/wsm-ejhj-zcb?authuser=0",
+            "text": "Географія"
+          },
+          {
+            "time": "16:00",
+            "middlelesson": "30m",
+            "teacher": "Людмила",
+            "link": "https://meet.google.com/dqt-bhxk-bor",
+            "text": "Хімія"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
+}
