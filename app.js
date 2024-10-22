@@ -2,9 +2,9 @@
 
 let lists;
 let commits;
+let staticWebSite = "load"
 const selectedClass = "class7";
 function finish(data, version) {
-    console.log(version)
     return new Promise((resolve, reject) => {
         const currentDate = new Date();
         const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
@@ -12,7 +12,12 @@ function finish(data, version) {
         document.getElementById("version").innerHTML = `<div class="contentv"><p>Version Patch: ${version} <br>Date: ${formattedCurrentDate} </p></div>`;
         resolve(lists);
         const size = lists.length;
-        document.getElementById("developer").innerHTML = `${size}`;
+        document.getElementById("developer").innerHTML = `
+        DN: ${formattedCurrentDate}<br>
+        V: ${version} T: | ${navigator.platform}<br>
+        W: ${staticWebSite}! 
+
+        `;
     });
 }
 
@@ -68,7 +73,7 @@ function main(commits) {
                     const now = new Date();
                     const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
                     const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // hh:mm
-                    if (dayOfWeek === "Saturday" || dayOfWeek === "Sunday") {
+                    if (schedule[dayOfWeek] === undefined) {
                         html += `<div><div id="error"><h2>Упс! В розкладі немає інформації про даний день: ${dayOfWeek}.</h2></div></div>`;
                         document.getElementById("schedule").innerHTML = html;
                         break;
@@ -133,10 +138,7 @@ function main(commits) {
                     }
             }
         }
-
-
     }
-
     Schedule("all");
     startCurrentLessonCheck(commits);
 }
@@ -174,7 +176,7 @@ function infolesson() {
                 if (teacher != "none") { html += `<p><strong>Вчитель:</strong> ${teacher}</p>`; } else { html += `<p>Вчителя немає</p>`; }
                 if (duration != "none") { html += `<p><strong>Тривалість:</strong> ${duration}</p>`; } else { html += `<p>Немає інформації</p>`; }
                 html += `<p><strong>Урок:</strong> ${time} - ${endHour}:${endMinute}</p>`;
-                if (link != "none") {html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`;} else {html += `<p style="color: rgb(40, 47, 96);">Посилання немає</p>`;}
+                if (link != "none") { html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`; } else { html += `<p style="color: rgb(40, 47, 96);">Посилання немає</p>`; }
                 html += `<p></p>`;
                 html += `</div>`;
                 fakeInfoDiv.innerHTML = html;
@@ -189,7 +191,6 @@ function getCurrentLesson(commits) {
     const now = new Date();
     const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
     const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // hh:mm
-    console.log(commits)
     for (les of commits.lists) {
         const startDate = les.date[0];
         const endDate = les.date[1];
@@ -230,3 +231,4 @@ function startCurrentLessonCheck(commits) {
     }
     checkLesson();
 }
+staticWebSite = "finish"
