@@ -60,7 +60,7 @@ function main(commits) {
             const endDate = les.date[1];
             const currentDate = new Date();
             const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
-            if (startDate < formattedCurrentDate && endDate > formattedCurrentDate) {
+            if (startDate <= formattedCurrentDate && endDate >= formattedCurrentDate) {
                 schedule = les.class[selectedClass]
                 createScheduleTable(schedule, dayName)
             }
@@ -196,25 +196,24 @@ function getCurrentLesson(commits) {
         const endDate = les.date[1];
         const currentDate = new Date();
         const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
-        if (startDate < formattedCurrentDate && endDate > formattedCurrentDate) {
-            lessonsToday = les.class[selectedClass[dayOfWeek]]
+        if (startDate <= formattedCurrentDate && endDate >= formattedCurrentDate) {
+            lessonsToday = les.class[selectedClass][dayOfWeek]
         }
     }
     if (lessonsToday) {
         for (const lesson of lessonsToday) {
-            const [lessonHour, lessonMinute] = lesson.time.split(':').map(Number);
+            const [lessonHour, lessonMinute] = lesson.lesson_time.split(':').map(Number);
             const lessonStart = new Date(now);
             lessonStart.setHours(lessonHour, lessonMinute, 0, 0);
 
-            const durationMinutes = parseInt(lesson.middlelesson) || 0;
+            const durationMinutes = parseInt(lesson.lesson_middlelesson) || 0;
             const lessonEnd = new Date(lessonStart.getTime() + durationMinutes * 60000);
 
             const currentDateTime = new Date(now);
             const currentHour = currentTime.split(':').map(Number);
             currentDateTime.setHours(currentHour[0], currentHour[1], 0, 0);
-
             if (currentDateTime >= lessonStart && currentDateTime < lessonEnd) {
-                return `Зараз урок: ${lesson.text}`;
+                return `Зараз урок: ${lesson.lesson_text}`;
             }
         }
     }
