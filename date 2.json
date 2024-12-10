@@ -11,98 +11,38 @@
                     "Monday": [
                         {
                             "type": "lesson",
-                            "lesson_text": "Фізра",
-                            "lesson_time": "15:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Марина Бережанская",
-                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
-                        },
-                        {
-                            "type": "lesson",
                             "lesson_text": "Українська мова",
-                            "lesson_time": "16:00",
+                            "lesson_time": "15:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Тамила",
                             "lesson_link": "https://meet.google.com/def-efeh-dgg"
                         },
                         {
                             "type": "lesson",
-                            "lesson_text": "Біологія",
-                            "lesson_time": "17:00",
+                            "lesson_text": "Геометрія",
+                            "lesson_time": "16:00",
                             "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Олена Улитич",
-                            "lesson_link": "https://meet.google.com/oqz-jste-qbz?authuser=0&hs=179"
+                            "lesson_teacher": "Марина Бережанская",
+                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
                         },
                         {
                             "type": "lesson",
                             "lesson_text": "Геометрія",
-                            "lesson_time": "18:00",
+                            "lesson_time": "17:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Марина Бережанская",
                             "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
+                        },
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Інформатика",
+                            "lesson_time": "18:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Олена Хряпіна",
+                            "lesson_link": "https://meet.google.com/wnc-tozp-rcu"
                         }
                     ],
                     "Tuesday": [
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Фізика",
-                            "lesson_time": "15:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Лариса",
-                            "lesson_link": "https://meet.google.com/zzh-jgak-vjz"
-                        },
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Англіська мова",
-                            "lesson_time": "16:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Аліна Петрівна",
-                            "lesson_link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09"
-                        },
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Здоров'я",
-                            "lesson_time": "17:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Олена Улитич",
-                            "lesson_link": "https://meet.google.com/zqz-thxe-uqp"
-                        },
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Література",
-                            "lesson_time": "18:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Тамила",
-                            "lesson_link": "https://meet.google.com/jgi-whii-oyx"
-                        }
-                    ],
-                    "Wednesday": [
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Географія",
-                            "lesson_time": "15:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Олена Улитич",
-                            "lesson_link": "https://meet.google.com/oqz-jste-qbz?authuser=0"
-                        },
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Геометрія",
-                            "lesson_time": "16:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Марина Бережанская",
-                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
-                        },
-                        {
-                            "type": "lesson",
-                            "lesson_text": "Фізра",
-                            "lesson_time": "17:00",
-                            "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Марина Бережанская",
-                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
-                        }
-                    ],
-                    "Thursday": [
                         {
                             "type": "lesson",
                             "lesson_text": "Англіська мова",
@@ -113,34 +53,84 @@
                         },
                         {
                             "type": "lesson",
-                            "lesson_text": "Українська мова",
+                            "lesson_text": "Література",
                             "lesson_time": "15:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Тамила",
-                            "lesson_link": "https://meet.google.com/def-efeh-dgg"
+                            "lesson_link": "https://meet.google.com/jgi-whii-oyx"
                         },
                         {
                             "type": "lesson",
-                            "lesson_text": "Німецька (ф)",
+                            "lesson_text": "Фізика",
                             "lesson_time": "16:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Лариса",
+                            "lesson_link": "https://meet.google.com/zzh-jgak-vjz"
+                        },
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Історія",
+                            "lesson_time": "17:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Ірина Бордюг",
+                            "lesson_link": "https://meet.google.com/wui-vepp-qwx"
+                        }
+                    ],
+                    "Wednesday": [
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Англіська мова",
+                            "lesson_time": "15:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Аліна Петрівна",
+                            "lesson_link": "https://us05web.zoom.us/j/5500159811?pwd=TTdvcnNDa3crMityNnhtOGlycTJ3UT09"
+                        },
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Біологія",
+                            "lesson_time": "16:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Олена Улитич",
+                            "lesson_link": "https://meet.google.com/oqz-jste-qbz?authuser=0&hs=179"
+                        },
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Геометрія",
+                            "lesson_time": "17:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Марина Бережанская",
+                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
+                        },
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Фізра",
+                            "lesson_time": "18:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Марина Бережанская",
+                            "lesson_link": "https://meet.google.com/tdn-mwny-ozt"
+                        }
+                    ],
+                    "Thursday": [
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Німецька (ф)",
+                            "lesson_time": "15:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Людмила",
                             "lesson_link": "https://meet.google.com/xzt-eqsm-nvb"
                         },
                         {
                             "type": "lesson",
-                            "lesson_text": "Українознавство",
-                            "lesson_time": "17:00",
+                            "lesson_text": "безп.пр",
+                            "lesson_time": "16:00",
                             "lesson_middlelesson": "30m",
-                            "lesson_teacher": "nan",
-                            "lesson_link": "https://meet.google.com/pdr-kanv-gwm"
-                        }
-                    ],
-                    "Friday": [
+                            "lesson_teacher": "Олена Улитич",
+                            "lesson_link": "https://meet.google.com/qwa-rhcu-qni?authuser=0&hs=179"
+                        },
                         {
                             "type": "lesson",
-                            "lesson_text": "Технології",
-                            "lesson_time": "15:00",
+                            "lesson_text": "Мистетство",
+                            "lesson_time": "17:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Людмила",
                             "lesson_link": "https://meet.google.com/gfo-vdsu-tvp"
@@ -148,18 +138,28 @@
                         {
                             "type": "lesson",
                             "lesson_text": "Історія",
-                            "lesson_time": "16:00",
+                            "lesson_time": "18:00",
                             "lesson_middlelesson": "30m",
                             "lesson_teacher": "Ірина Бордюг",
                             "lesson_link": "https://meet.google.com/wui-vepp-qwx"
+                        }
+                    ],
+                    "Friday": [
+                        {
+                            "type": "lesson",
+                            "lesson_text": "Географія",
+                            "lesson_time": "15:00",
+                            "lesson_middlelesson": "30m",
+                            "lesson_teacher": "Олена Улитич",
+                            "lesson_link": "https://meet.google.com/oqz-jste-qbz?authuser=0"
                         },
                         {
                             "type": "lesson",
-                            "lesson_text": "Література",
-                            "lesson_time": "17:00",
+                            "lesson_text": "Хімія",
+                            "lesson_time": "16:00",
                             "lesson_middlelesson": "30m",
-                            "lesson_teacher": "Тамила",
-                            "lesson_link": "https://meet.google.com/jgi-whii-oyx"
+                            "lesson_teacher": "Людмила",
+                            "lesson_link": "https://meet.google.com/dqt-bhxk-bor"
                         }
                     ]
                 }
