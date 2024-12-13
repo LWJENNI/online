@@ -1,0 +1,15 @@
+[
+    {
+        "id":"test",
+        "scr":"/works/test.html",
+        "title":"test",
+        "name":"123",
+        "lore":"lore",
+        "writtenin": {
+            "css":false,
+            "html":true,
+            "js":false,
+            "ts":false
+        }
+    }
+]
