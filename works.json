@@ -11,5 +11,18 @@
             "js":false,
             "ts":false
         }
+    },
+    {
+        "id":"test2",
+        "scr":"/works/test2.html",
+        "title":"test2",
+        "name":"123",
+        "lore":"lore2",
+        "writtenin": {
+            "css":false,
+            "html":true,
+            "js":false,
+            "ts":false
+        }
     }
 ]
