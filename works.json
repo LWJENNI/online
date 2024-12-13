@@ -24,5 +24,18 @@
             "js":false,
             "ts":false
         }
+    },
+    {
+        "id":"test22",
+        "scr":"/works/test22.html",
+        "title":"test22",
+        "name":"123",
+        "lore":"lore2lore2lore2lore2lore2lore2lore2lore2lore2lore2",
+        "writtenin": {
+            "css":false,
+            "html":true,
+            "js":false,
+            "ts":false
+        }
     }
 ]
