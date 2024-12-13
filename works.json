@@ -1,40 +1,79 @@
 [
     {
-        "id":"test",
-        "scr":"/works/test.html",
-        "title":"test",
-        "name":"123",
-        "lore":"lore",
+        "id":"tictactoe",
+        "scr":"/works/tictactoe.html",
+        "title":"Крестики нолики",
+        "name":"Крестики нолики",
+        "lore":"Гра для 1 людини с ии",
         "writtenin": {
-            "css":false,
+            "css":true,
             "html":true,
-            "js":false,
+            "js":true,
             "ts":false
         }
     },
     {
-        "id":"test2",
-        "scr":"/works/test2.html",
-        "title":"test2",
-        "name":"123",
-        "lore":"lore2",
+        "id":"text",
+        "scr":"/works/text.html",
+        "title":"text",
+        "name":"Текст",
+        "lore":"Текст який появляється по n",
         "writtenin": {
-            "css":false,
+            "css":true,
             "html":true,
-            "js":false,
+            "js":true,
             "ts":false
         }
     },
     {
-        "id":"test22",
-        "scr":"/works/test22.html",
-        "title":"test22",
-        "name":"123",
-        "lore":"lore2lore2lore2lore2lore2lore2lore2lore2lore2lore2",
+        "id":"table",
+        "scr":"/works/table.html",
+        "title":"table",
+        "name":"Табличка множення",
+        "lore":"Табличка множення та степень",
         "writtenin": {
-            "css":false,
+            "css":true,
             "html":true,
-            "js":false,
+            "js":true,
+            "ts":false
+        }
+    },
+    {
+        "id":"format",
+        "scr":"/works/formation.html",
+        "title":"форматирування",
+        "name":"Топ из стран",
+        "lore":"Топ",
+        "writtenin": {
+            "css":true,
+            "html":true,
+            "js":true,
+            "ts":false
+        }
+    },
+    {
+        "id":"factorial",
+        "scr":"/works/factorial.html",
+        "title":"factorial",
+        "name":"Фактариал",
+        "lore":"Фактариал числа",
+        "writtenin": {
+            "css":true,
+            "html":true,
+            "js":true,
+            "ts":false
+        }
+    },
+    {
+        "id":"table",
+        "scr":"/works/table.html",
+        "title":"table",
+        "name":"Табличка множення",
+        "lore":"Табличка множення та степень",
+        "writtenin": {
+            "css":true,
+            "html":true,
+            "js":true,
             "ts":false
         }
     }
