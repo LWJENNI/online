@@ -2,24 +2,7 @@
 
 let lists;
 let commits;
-let staticWebSite = "load"
-const selectedClass = "class7";
-function finish(data, version) {
-    return new Promise((resolve, reject) => {
-        const currentDate = new Date();
-        const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
-        lists = data.class;
-        document.getElementById("version").innerHTML = `<div class="contentv"><p>Version Patch: ${version} <br>Date: ${formattedCurrentDate} </p></div>`;
-        resolve(lists);
-        const size = lists.length;
-        document.getElementById("developer").innerHTML = `
-        DN: ${formattedCurrentDate}<br>
-        V: ${version} T: | ${navigator.platform}<br>
-        W: ${staticWebSite}! 
-
-        `;
-    });
-}
+let selectedClass = document.getElementById("class").value;
 
 async function fetchData(commits) {
     const send = 'https://raw.githubusercontent.com/LWJENNI/online/main/date%202.json';
@@ -34,10 +17,11 @@ fetchData();
 
 function main(commits) {
     document.getElementById('date').addEventListener('change', updateContent);
-
+    document.getElementById('class').addEventListener('change', updateContent);
 
     function updateContent() {
         const dayValue = document.getElementById('date').value;
+        selectedClass = document.getElementById("class").value
         Schedule(dayValue);
     }
 
@@ -53,13 +37,14 @@ function main(commits) {
     }
 
     function Schedule(dayName) {
-        const version = commits.version
+        console.log(commits)
         for (les of commits.lists) {
-            finish(les, version)
             const startDate = les.date[0];
             const endDate = les.date[1];
             const currentDate = new Date();
             const formattedCurrentDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '.');
+            console.log(`${startDate} <= ${formattedCurrentDate} && ${endDate} >= ${formattedCurrentDate}`)
+            console.log(startDate <= formattedCurrentDate && endDate >= formattedCurrentDate)
             if (startDate <= formattedCurrentDate && endDate >= formattedCurrentDate) {
                 schedule = les.class[selectedClass]
                 createScheduleTable(schedule, dayName)
@@ -142,14 +127,7 @@ function main(commits) {
     Schedule("all");
     startCurrentLessonCheck(commits);
 }
-
-
-
 //             MAIN               //
-
-
-
-
 function infolesson() {
     const buttons = document.querySelectorAll('.text');
     buttons.forEach(button => {
@@ -173,10 +151,27 @@ function infolesson() {
             if (fakeInfoDiv.style.display === 'none' || fakeInfoDiv.style.display === '') {
                 let html = `<div style="color: rgb(36, 41, 74);">`;
                 html += `<h2>Урок: ${lesson}</h2>`;
-                if (teacher != "none") { html += `<p><strong>Вчитель:</strong> ${teacher}</p>`; } else { html += `<p>Вчителя немає</p>`; }
-                if (duration != "none") { html += `<p><strong>Тривалість:</strong> ${duration}</p>`; } else { html += `<p>Немає інформації</p>`; }
+                console.log(typeof teacher)
+                if (teacher !== "null") {
+                    html += `<p><strong>Вчитель:</strong> ${teacher}</p>`;
+                } else {
+                    html += `<p>Вчитель не вказанно</p>`;
+                }
+                
+                if (duration !== "null") {
+                    html += `<p><strong>Тривалість:</strong> ${duration}</p>`;
+                } else {
+                    html += `<p>Тривалість не вказана</p>`;
+                }
+                
                 html += `<p><strong>Урок:</strong> ${time} - ${endHour}:${endMinute}</p>`;
-                if (link != "none") { html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`; } else { html += `<p style="color: rgb(40, 47, 96);">Посилання немає</p>`; }
+                
+                if (link !== "null") {
+                    html += `<a href="${link}" target="_blank" style="color: rgb(40, 47, 96); text-decoration: underline;">Перейти до уроку</a>`;
+                } else {
+                    html += `<p style="color: rgb(40, 47, 96);">Посилання не вказано</p>`;
+                }
+                
                 html += `<p></p>`;
                 html += `</div>`;
                 fakeInfoDiv.innerHTML = html;
@@ -191,6 +186,7 @@ function getCurrentLesson(commits) {
     const now = new Date();
     const dayOfWeek = now.toLocaleString('en-EN', { weekday: 'long' });
     const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // hh:mm
+    let lessonsToday = undefined
     for (les of commits.lists) {
         const startDate = les.date[0];
         const endDate = les.date[1];
@@ -200,7 +196,7 @@ function getCurrentLesson(commits) {
             lessonsToday = les.class[selectedClass][dayOfWeek]
         }
     }
-    if (lessonsToday) {
+    if (!lessonsToday === undefined) {
         for (const lesson of lessonsToday) {
             const [lessonHour, lessonMinute] = lesson.lesson_time.split(':').map(Number);
             const lessonStart = new Date(now);
@@ -230,4 +226,3 @@ function startCurrentLessonCheck(commits) {
     }
     checkLesson();
 }
-staticWebSite = "finish"

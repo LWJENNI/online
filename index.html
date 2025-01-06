@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Розклад</title>
-    <link rel="icon" href="ico.icon.png" type="image/x-icon">
+    <link rel="icon" href="./icon.png" type="image/x-icon">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const userSize = window.innerWidth;
@@ -45,12 +45,6 @@
             border-bottom-right-radius: 0px;
         }
 
-        select {
-            background-color: rgb(35, 193, 207);
-            border-radius: 10px;
-            text-align: center;
-        }
-
         .day-schedule {
             border-radius: 25px;
             margin: 10px 0;
@@ -73,7 +67,7 @@
             top: 0;
             right: 0;
             width: 300px;
-            height: 100px;
+            height: 50px;
             background-color: rgba(38, 150, 187, 0.448);
             border: 2px solid rgba(33, 156, 197, 0.448);
             text-align: center;
@@ -176,9 +170,50 @@
         .lessondiv {
             transition: transform 1s ease;
         }
+
+
+        .selection {
+            background-color: rgb(22, 148, 198);
+            border-radius: 25px;
+            border: solid rgb(15, 106, 142);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            margin: 0 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #2dc9e2;
+            color: #000;
+            cursor: pointer;
+        }
+
+        select option {
+            padding: 8px;
+            background-color: #578893;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .selection {
+                flex-direction: column;
+            }
+
+            select {
+                width: 90%;
+                font-size: 14px;
+                margin: 5px 0;
+            }
+        }
     </style>
     <meta name="author" content="LWJENNI">
-    <!-- <meta http-equiv="refresh" content="1;url=https://github.com/LWJENNI/online"> -->
 </head>
 
 <body>
@@ -186,44 +221,34 @@
         <div
             style="background-color: rgb(22, 148, 198); border-radius: 25px; border: solid rgb(15, 106, 142); text-align: center; display: flex; justify-content: center; align-items: center; padding: 10px;">
 
-            <div class="links"
+            <!-- <div class="links"
                 style="margin: 0 10px; background-color: rgb(53, 157, 198); padding: 20px 20px; border-radius: 10px;  display: none;">
                 <a href="news.html" style=" color: rgb(50, 95, 112);">News</a>
+            </div> -->
+            <div class="selection">
+                <select name="class" id="class" style="margin: 0 10px; padding: 20px 20px;">
+                    <option value="class1" selected>1 Класс</option>
+                    <option value="class2">2 Класс</option>
+                    <option value="class3">3 Класс</option>
+                    <option value="class4">4 Класс</option>
+                    <option value="class5">5 Класс</option>
+                    <option value="class6">6 Класс</option>
+                    <option value="class7">7 Класс</option>
+                    <option value="class8">8 Класс</option>
+                    <option value="class9">9 Класс</option>
+                    <option value="class10">10 Класс</option>
+                    <option value="class11">11 Класс</option>
+                </select>
+                <select name="date" id="date" style="margin: 0 10px; padding: 20px 20px;">
+                    <option value="online">Сьогодні</option>
+                    <option value="all" selected>Всі дні</option>
+                    <option value="Monday">Понеділок</option>
+                    <option value="Tuesday">Вівторок</option>
+                    <option value="Wednesday">Середа</option>
+                    <option value="Thursday">Четвер</option>
+                    <option value="Friday">П'ятниця</option>
+                </select>
             </div>
-
-            <select name="date" id="date" style="margin: 0 10px; padding: 20px 20px;">
-                <option value="online">Сьогодні</option>
-                <option value="all" selected>Всі дні</option>
-                <option value="Monday">Понеділок</option>
-                <option value="Tuesday">Вівторок</option>
-                <option value="Wednesday">Середа</option>
-                <option value="Thursday">Четвер</option>
-                <option value="Friday">П'ятниця</option>
-            </select>
-
-            <div class="version" id="version"
-                style="background-color: rgb(19, 118, 157); margin: 0 10px; padding: 0px 10px; border-radius: 10px;">
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const bendableDiv = document.querySelector('.version');
-
-                        bendableDiv.addEventListener('mousemove', (event) => {
-                            const { offsetX, offsetY } = event;
-                            const { clientWidth, clientHeight } = bendableDiv;
-
-                            const x = (offsetX / clientWidth - 0.5) * 2;
-                            const y = (offsetY / clientHeight - 0.5) * -2;
-
-                            bendableDiv.style.transform = `perspective(500px) rotateX(${y * 10}deg) rotateY(${x * -10}deg)`;
-                        });
-
-                        bendableDiv.addEventListener('mouseleave', () => {
-                            bendableDiv.style.transform = 'rotateX(0) rotateY(0)';
-                        });
-                    });
-                </script>
-            </div>
-
         </div>
     </main>
 
@@ -272,7 +297,7 @@
                         lessondiv.style.transform = `translateX(0%)`;
                     } else {
                         toggle.style.transform = 'translateX(50%) rotate(270deg)';
-                        lessondiv.style.transform = `translateX(90%)`;
+                        lessondiv.style.transform = `translateX(97%)`;
                     }
                 });
 
@@ -281,22 +306,29 @@
         </div>
     </aside>
     <footer>
-        <div
-            style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;">
+        <div style="position: fixed; bottom: 20px; left: 50%; margin: 0px -130px; background-color: rgba(27, 96, 124, 0.5); padding: 10px; border-radius: 5px; z-index: 1000;"
+            id="meta">
             Це не фінальний результат, <br> і розклад може бути змінений.
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
     </footer>
-    <article>
-        <div style="background-color: rgb(8, 96, 104); text-align: center; width: 35%;">
-            Info (launcher BETA)
-            <div id="developer" class="info"></div>
-        </div>
-    </article>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
+
+    <script>
+        const content = document.getElementById('meta');
+
+        function checkScroll() {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            scrollTop = Math.floor(scrollTop)
+            console.log(scrollTop);
+            if (scrollTop > 100) {
+                content.style.display = 'none'; // Скрываем элемент
+            } else {
+                content.style.display = 'block'; // Показываем элемент
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+    </script>
 </body>
 
 </html>
